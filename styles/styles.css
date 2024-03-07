@@ -5,47 +5,102 @@ body{
 }
 
 .header {
-    padding: 2rem;
+    padding: 4rem 0;
 }
 
-h1{
-    font-size: 3rem;
+.header__title{
+    font-size: 4rem;
 }
 
 .main{
-    height: 100%;
-    margin: 2rem 10rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 10rem;
 }
 
-.main_intro p{
-    padding: 1rem;
+.main__intro{
+    padding: 0 8rem;
 }
 
-.main_info-card{
+.intro__title{
+    font-size: 2rem;
+}
+
+.intro__text{
+    margin: 2rem 0;
+    line-height: 1.5;
+}
+
+.main__info{
+    font-size: 1.5rem;
+}
+
+.main__cards{
     display: flex;
     justify-content: space-evenly;
-    padding: 1rem 0;
-    margin: 0 auto;
     width: 60rem;
+    padding: 1rem;
+    margin: 2rem 0;
     border-radius: 1rem;
     box-shadow: 10px 10px 10px -1px rgba(10, 99, 169, 0.16), -10px -10px 10px -1px rgba(255, 255, 255, 0.70);
 }
 
-.card_container{
-    transition: 1s;
+.cards__card{
+    transition: transform 1s;
 }
 
-.card_container:hover{
-    scale: 1.2;
+.cards__card:hover{
+    transform: scale(1.1);
 }
 
-.card_container p{
-    font-size: 2rem;
+.card__text{
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
-.card_container img{
-    height: 10rem;
+.card__img{
+    height: 15rem;
     width: 100%;
     object-fit: cover;
 }
 
+.main__forms{
+    width: 60rem;
+    padding: 1rem;
+    text-align: start;
+}
+
+.main__forms input[type="text"], textarea{
+    resize: none;
+    width: 55rem;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+    box-shadow: 1px 9px 20px -5px rgba(10, 99, 169, 0.16);
+}
+
+.forms__container{
+    margin: 0.5rem;
+    text-align: center;
+}
+
+.forms__container input[type="text"], textarea{
+    margin: 0.5rem;
+}
+
+.main__forms input[type="text"]:focus, textarea:focus{
+    outline: 1px solid rgb(195, 194, 194);
+}
+
+.btn__submit{
+    width: 10rem;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    font-weight: 700;
+    color: red;
+    box-shadow: 10px 10px 10px -1px rgba(10, 99, 169, 0.16), -10px -10px 10px -1px rgba(255, 255, 255, 0.70);
+    cursor: pointer;
+}

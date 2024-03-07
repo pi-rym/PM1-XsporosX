@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/reset.css">
     <link rel="stylesheet" href="./styles/styles.css">
-    
+
     <!-- FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,50 +15,42 @@
 </head>
 <body>
     <header class="header">
-        <h1>Mi Página Web</h1>
+        <h1 class="header__title">MI PAGINA WEB</h1>
     </header>
     <main class="main">
-        <section class="main_intro">
-            <h2>¿Quién soy?</h2>
-            <p>Hola a todos!!! Mi nombre es Saul Ortiz, soy de Bolivia, me gusta mucho la informática y tecnología, hace poco tiempo se me dio la oportunidad de iniciar este viaje en el Bootcamp SOY HENRY, espero lograr finalizar todos los módulos, graduarme y aprender mucho de toda esta experiencia de todos los instructores y mis compañeros de módulos.Un feliz viaje para todos.... a darle átomos!!!</p>
+        <section class="main__intro">
+            <h2 class="intro__title">¿Quién soy?</h2>
+            <p class="intro__text">Hola a todos!!! Mi nombre es Saul Ortiz, soy de Bolivia, me gusta mucho la informática y tecnología, hace poco tiempo se me dio la oportunidad de iniciar este viaje en el Bootcamp SOY HENRY, espero lograr finalizar todos los módulos, graduarme y aprender mucho de toda esta experiencia de todos los instructores y mis compañeros de módulos.Un feliz viaje para todos.... a darle átomos!!!</p>
         </section>
-        <section class="main_info">
-            <article class="main_info-title">
-                <h3>Mis Tecnologías Favoritas</h3>
-            </article>
-            <article class="main_info-card">
-                <div class="card_container">
-                    <p>HTML</p>
-                    <img src="assets/HTML.png" alt="Imagen HTML">
-                </div>
-                <div class="card_container">
-                    <p>CSS</p>
-                    <img src="assets/CSS.png" alt="Imagen CSS">
-                </div>
-                <div class="card_container">
-                    <p>JavaScript</p>
-                    <img src="assets/JS.png" alt="Imagen JS">
-                </div>
-            </article>
+        <section class="main__info">
+            <h3 class="info__title">Mis Tecnologías Favoritas</h3>
         </section>
-        <section>
-            <form>
-                <div>
-                    <label for="">Tu nombre</label>
-                    <input type="text" placeholder="Nombre..." name="nombre"/>
-                </div>
-                <div>
-                    <label for="mensaje">Descripción de la Actividad</label>
-                    <textarea name="mensaje" cols="30" rows="10" placeholder="Descripción de la Actividad"></textarea>
-                </div>
-                <div>
-                    <label for="imagen">Link de Imagen</label>
-                    <input type="text" placeholder="Link de Imagen" name="imagen"/>
-                </div>
-                <div>
-                    <input type="submit" value="Subir foto">
-                </div>
-            </form>
+        <section class="main__cards">
+            <div class="cards__card">
+                <p class="card__text">HTML</p>
+                <img class="card__img" src="assets/HTML.png" alt="Imagen HTML">
+            </div>
+            <div class="cards__card">
+                <p class="card__text">CSS</p>
+                <img class="card__img" src="assets/CSS.png" alt="Imagen CSS">
+            </div>
+            <div class="cards__card">
+                <p class="card__text">JavaScript</p>
+                <img class="card__img" src="assets/JS.png" alt="Imagen JS">
+            </div>
+        </section>
+        <section class="main__forms">
+            <article class="forms__form">
+                <h2 class="form__title">Mis Actividades Faboritas</h2>
+            </article>
+            <article class="forms__container">
+                <input type="text" placeholder="Nombre de la Actividad" name="nombre"/>
+                <textarea name="mensaje" cols="30" rows="10" placeholder="Descripción de la Actividad"></textarea>
+                <input type="text" placeholder="Link de Imagen" name="imagen"/>
+            </article>
+            <article class="forms__btn">
+                <input class="btn__submit" type="submit" value="Agregar Actividad">
+            </article>
         </section>
     </main>
 </body>
