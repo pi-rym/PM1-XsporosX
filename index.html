@@ -56,19 +56,29 @@
         <article class="forms__container">
           <input
             type="text"
+            id="title"
             placeholder="Nombre de la Actividad"
             name="nombre"
+            required
           />
           <textarea
             name="mensaje"
+            id="description"
             cols="30"
             rows="10"
             placeholder="Descripción de la Actividad"
+            required
           ></textarea>
-          <input type="text" placeholder="Link de Imagen" name="imagen" />
+          <input
+            type="text"
+            id="imgUrl"
+            placeholder="Link de Imagen"
+            name="imagen"
+            required
+          />
         </article>
         <article class="forms__btn">
-          <button class="btn__submit">Agregar Actividad</button>
+          <button id="add" class="btn__submit">Agregar Actividad</button>
         </article>
       </section>
     </main>
