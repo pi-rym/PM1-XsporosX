@@ -25,54 +25,80 @@ class Repository {
   }
 }
 
-const repository = new Repository();
+// const repository = new Repository();
 
-repository.createActivity("Musica", "Es una actividad relajante", "imgURL");
-repository.createActivity("Deporte", "Es bueno para el cuerpo y alma", "imgURL");
-repository.createActivity("Lectura", "Cultiva y ejercita la mente", "imgURL");
-repository.createActivity("Pintura", "Incrementa la inspiración y despierta la creatividad", "imgURL");
+// repository.createActivity("Musica", "Es una actividad relajante", "imgURL");
+// repository.createActivity("Deporte", "Es bueno para el cuerpo y alma", "imgURL");
+// repository.createActivity("Lectura", "Cultiva y ejercita la mente", "imgURL");
+// repository.createActivity("Pintura", "Incrementa la inspiración y despierta la creatividad", "imgURL");
 
-console.log("Todas las actividades en el repositorio: ", repository.getAllActivities());
+// console.log("Todas las actividades en el repositorio: ", repository.getAllActivities());
 
-repository.deleteActivity(3);
+// repository.deleteActivity(3);
 
-console.log("Actividades después de eliminar la actividad con ID 3: ", repository.getAllActivities());
+// console.log("Actividades después de eliminar la actividad con ID 3: ", repository.getAllActivities());
 
+function createActivityElement(activity) {
+  const { id, title, description, imgURL } = activity;
 
-
-const addBtn = document.getElementById("add");
-const body = document.getElementsByTagName("body")[0];
-
-const addBtnHandler = () => {
-
-  const nuevoDiv = document.createElement("div");
-  nuevoDiv.classList.add("main__cards");
-  nuevoDiv.addEventListener("click", (event) => {
-    event.target.remove();
-  });
-
-  const title = document.getElementById("title");
-  const description = document.getElementById("description");
-  const imgUrl = document.getElementById("imgUrl");
-
-  const titleElement = document.createElement("p");
-  titleElement.textContent = title.value;
+  const titleElement = document.createElement("h3");
+  titleElement.innerHTML = title;
 
   const descriptionElement = document.createElement("p");
-  descriptionElement.textContent = description.value;
+  descriptionElement.innerHTML = description;
 
   const imgElement = document.createElement("img");
-  imgElement.src = imgUrl.value;
+  imgElement.src = imgURL;
 
-  nuevoDiv.appendChild(titleElement);
-  nuevoDiv.appendChild(descriptionElement);
-  nuevoDiv.appendChild(imgElement);
+  const cardContainer = document.createElement("div");
+  cardContainer.classList.add("main__cards");
 
-  title.value = "";
-  description.value = "";
-  imgUrl.value = "";
+  cardContainer.addEventListener("click", () => {
+    cardContainer.remove();
+    repository.deleteActivity(id);
+  });
 
-  body.appendChild(nuevoDiv);
+  cardContainer.appendChild(titleElement);
+  cardContainer.appendChild(descriptionElement);
+  cardContainer.appendChild(imgElement);
+
+  return cardContainer;
 }
 
+function displayAllActivities(repository) {
+  const container = document.getElementById("activity__container");
+  container.innerHTML = "";
+
+  const activities = repository.getAllActivities();
+  activities.forEach((activity) => {
+    const activityElement = createActivityElement(activity, repository);
+    container.appendChild(activityElement);
+  });
+}
+
+function addBtnHandler() {
+  const titleInput = document.getElementById("title");
+  const descriptionInput = document.getElementById("description");
+  const imgUrlInput = document.getElementById("imgUrl");
+
+  const title = titleInput.value;
+  const description = descriptionInput.value;
+  const imgUrl = imgUrlInput.value
+
+  if (title == "" || description == "" || imgUrl == "") {
+    alert("Hay datos incompletos");
+    return;
+  }
+
+  repository.createActivity(title, description, imgUrl);
+  displayAllActivities(repository);
+
+  titleInput.value = "";
+  descriptionInput.value = "";
+  imgUrlInput.value = "";
+}
+
+const addBtn = document.getElementById("addBtn");
 addBtn.addEventListener("click", addBtnHandler);
+
+const repository = new Repository();
