@@ -77,25 +77,21 @@ function displayAllActivities(repository) {
 }
 
 function addBtnHandler() {
-  const titleInput = document.getElementById("title");
-  const descriptionInput = document.getElementById("description");
-  const imgUrlInput = document.getElementById("imgUrl");
+  const titleInput = document.getElementById("title").value;
+  const descriptionInput = document.getElementById("description").value;
+  const imgUrlInput = document.getElementById("imgUrl").value;
 
-  const title = titleInput.value;
-  const description = descriptionInput.value;
-  const imgUrl = imgUrlInput.value
-
-  if (title == "" || description == "" || imgUrl == "") {
+  if (titleInput == "" || descriptionInput == "" || imgUrlInput == "") {
     alert("Hay datos incompletos");
     return;
   }
 
-  repository.createActivity(title, description, imgUrl);
+  repository.createActivity(titleInput, descriptionInput, imgUrlInput);
   displayAllActivities(repository);
 
-  titleInput.value = "";
-  descriptionInput.value = "";
-  imgUrlInput.value = "";
+  document.getElementById("title").value = "";
+  document.getElementById("description").value = "";
+  document.getElementById("imgUrl").value = "";
 }
 
 const addBtn = document.getElementById("addBtn");
