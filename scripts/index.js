@@ -25,6 +25,8 @@ class Repository {
   }
 }
 
+module.exports = {Activity, Repository};
+
 // const repository = new Repository();
 
 // repository.createActivity("Musica", "Es una actividad relajante", "imgURL");
